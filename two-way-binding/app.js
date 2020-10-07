@@ -1,7 +1,7 @@
 new Vue({
-    el: '#exercise',
+    el: '#app',
     data: {
-        value: ''
+        name: "Jeremy"
     },
     methods: {
         showAlert: function(event) {

@@ -11,6 +11,7 @@ new Vue({
         },
     },
 methods : {
+    // vue has an implicit event argument
     changeTitle : function(event) {
         this.title = event.target.value
         this.step = parseInt(event.target.value)
