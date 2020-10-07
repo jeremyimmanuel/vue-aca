@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VueJS</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+    <div v-on:mousemove="updateCoordinate" id="app">
+        <button v-on:click="increase(2, $event)">Click me!</button>
+        <p>{{ counter }}</p>
+        <input type="text" v-on:input="changeTitle"> 
+        <p>
+            {{ title }} - <a v-bind:href="link">Google</a>
+        </p>
+        <p >Coordinates : {{coord.x}}, {{coord.y}}</p>
+    </div>
+    
+    
+    
+    
+    <script>
+        new Vue({
+            el: '#app',
+            data : {
+                title : 'Hello World',
+                link : 'https://google.com',
+                counter : 0,
+                step : 1,
+                coord : {
+                    x : 0,
+                    y : 0
+                },
+            },
+        methods : {
+            changeTitle : function(event) {
+                this.title = event.target.value
+                this.step = parseInt(event.target.value)
+                
+            },
+            increase : function(step, event) {
+                this.counter += step;
+                console.log(event.clientX)
+            },
+            updateCoordinate : function(event) {
+                
+                this.coord.x = event.clientX;
+                this.coord.y = event.clientY;
+            }
+        }
+        })
+    </script>
+
+
+</body>
+</html>
